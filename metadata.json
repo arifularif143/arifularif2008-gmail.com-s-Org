@@ -1,0 +1,6 @@
+{
+  "name": "MASTER TECHNOLOGY - Service Management System",
+  "description": "Comprehensive service & repair tracking system for computer, laptop, and monitor repair shops with multi-branch Excel workflow, payment tracking, and receipt generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,242 @@
+import { ServiceJob, Branch, ShopSettings } from '../types';
+
+export const INITIAL_BRANCHES: Branch[] = [
+  { id: 'divce-mama', name: 'Divce MAMA', isLegacyTab: true, phone: '+880 1711-234567', address: 'Shop 204, Multiplan Center' },
+  { id: 'peragong', name: 'Peragong', isLegacyTab: true, phone: '+880 1812-345678', address: 'Level 4, Computer City' },
+  { id: 'daffodil', name: 'Daffodil', isLegacyTab: true, phone: '+880 1913-456789', address: 'Sobhanbag, Dhanmondi' },
+  { id: 'gulsan-trest', name: 'Gulsan trest', isLegacyTab: true, phone: '+880 1614-567890', address: 'Gulshan-2 Shopping Complex' },
+  { id: 'hs-e', name: 'HS-E', isLegacyTab: true, phone: '+880 1515-678901', address: 'Elephant Road Branch' },
+  { id: 'jara-computer', name: 'JARA Computer', isLegacyTab: true, phone: '+880 1716-789012', address: 'Mirpur-10 Main Hub' }
+];
+
+export const INITIAL_SETTINGS: ShopSettings = {
+  shopName: 'MASTER TECHNOLOGY',
+  subtitle: 'Laptop, Desktop, Motherboard & Monitor Service Specialist',
+  address: 'Shop #420, Level-4, Computer City Center (Multiplan), New Elephant Road, Dhaka-1205',
+  phone: '+880 1712-000000 / +880 1912-000000',
+  email: 'mastertechnologybd.net@gmail.com',
+  terms: [
+    'ডিভাইস গ্রহণের সময় অবশ্যই মূল সার্ভিস রিসিট (Receipt) প্রদর্শন করতে হবে।',
+    'রিসিট ব্যতীত কোনো অবস্থাতেই পণ্য হস্তান্তর করা হবে না।',
+    '৩০ দিনের বেশি অবিক্রিত বা অসংগৃহীত পণ্যের কোনো ক্ষয়ক্ষতির দায় দোকান বহন করবে না।',
+    'মেরামতের ওয়ারেন্টি শুধুমাত্র প্রতিস্থাপিত নতুন পার্টসের ক্ষেত্রে ৩০ দিনের জন্য প্রযোজ্য।'
+  ]
+};
+
+export const INITIAL_JOBS: ServiceJob[] = [
+  {
+    id: 'job-seed-1',
+    jobNumber: 'MT-26-0001',
+    receiveDate: '2026-10-24',
+    branchId: 'divce-mama',
+    customerId: 'cust-1',
+    customerName: 'তানভীর আহমেদ',
+    customerPhone: '01711998877',
+    customerAddress: 'ধানমন্ডি, ঢাকা',
+    deviceType: 'Laptop',
+    brand: 'HP',
+    modelNumber: 'ProBook 450 G7',
+    serialNumber: '5CD0283JK1',
+    problemDescription: 'নো পাওয়ার (No Power), চার্জিং পোর্টের পাশ দিয়ে ধোঁয়া বের হয়েছিল।',
+    accessoriesIncluded: 'Original Adapter, Power Cable',
+    receivedBy: 'করিম (Reception)',
+    status: 'Ready for Delivery',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-24T10:30:00.000Z', updatedBy: 'করিম', note: 'ল্যাপটপ গ্রহণ করা হয়েছে।' },
+      { status: 'Under Repair', timestamp: '2026-10-25T11:00:00.000Z', updatedBy: 'সুজন (Tech)', note: 'মাদারবোর্ড শর্ট সার্কিট ও আইসি রিপ্লেসমেন্ট চলছে।' },
+      { status: 'Ready for Delivery', timestamp: '2026-10-27T16:20:00.000Z', updatedBy: 'সুজন (Tech)', note: 'রিপেয়ার সম্পন্ন ও ৮ ঘণ্টা স্ট্রেস টেস্ট সফল।' }
+    ],
+    estimatedCost: 3500,
+    finalCost: 3500,
+    totalPaid: 1500,
+    remainingBalance: 2000,
+    paymentStatus: 'Partially Paid',
+    paymentHistory: [
+      { id: 'pay-1', receiptNumber: 'PAY-1001', amount: 1500, date: '2026-10-24T10:35:00.000Z', method: 'bKash', receivedBy: 'করিম', note: 'অগ্রিম গ্রহণ' }
+    ],
+    deliveryDate: null,
+    deliveredBy: null,
+    deliveryName: null,
+    deliveryNotes: null,
+    createdAt: '2026-10-24T10:30:00.000Z',
+    updatedAt: '2026-10-27T16:20:00.000Z'
+  },
+  {
+    id: 'job-seed-2',
+    jobNumber: 'MT-26-0002',
+    receiveDate: '2026-10-25',
+    branchId: 'peragong',
+    customerId: 'cust-2',
+    customerName: 'রাকিবুল হাসান',
+    customerPhone: '01822334455',
+    customerAddress: 'ফার্মগেট, ঢাকা',
+    deviceType: 'Laptop',
+    brand: 'Dell',
+    modelNumber: 'Inspiron 15 3511',
+    serialNumber: '89X4BQ2',
+    problemDescription: 'ডিসপ্লে সাদা হয়ে যায়, কব্জা (Hinge) ভাঙা এবং কেসিং ফাটা।',
+    accessoriesIncluded: 'Laptop with Bag',
+    receivedBy: 'আরিফ',
+    status: 'Under Repair',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-25T14:15:00.000Z', updatedBy: 'আরিফ', note: 'গ্রহণ করা হয়েছে।' },
+      { status: 'Waiting for Parts', timestamp: '2026-10-26T12:00:00.000Z', updatedBy: 'মামুন (Tech)', note: 'নতুন ওরিজিনাল হিঞ্জ এবং স্ক্রিন কেবলের অপেক্ষা।' },
+      { status: 'Under Repair', timestamp: '2026-10-28T10:00:00.000Z', updatedBy: 'মামুন (Tech)', note: 'পার্টস পেয়ে বডি ফিটিং কাজ চলছে।' }
+    ],
+    estimatedCost: 4200,
+    finalCost: 4200,
+    totalPaid: 1000,
+    remainingBalance: 3200,
+    paymentStatus: 'Partially Paid',
+    paymentHistory: [
+      { id: 'pay-2', receiptNumber: 'PAY-1002', amount: 1000, date: '2026-10-25T14:20:00.000Z', method: 'Cash', receivedBy: 'আরিফ', note: 'ক্যাশ অগ্রিম' }
+    ],
+    deliveryDate: null,
+    deliveredBy: null,
+    deliveryName: null,
+    deliveryNotes: null,
+    createdAt: '2026-10-25T14:15:00.000Z',
+    updatedAt: '2026-10-28T10:00:00.000Z'
+  },
+  {
+    id: 'job-seed-3',
+    jobNumber: 'MT-26-0003',
+    receiveDate: '2026-10-22',
+    branchId: 'daffodil',
+    customerId: 'cust-3',
+    customerName: 'ফারহানা ইসলাম',
+    customerPhone: '01933445566',
+    customerAddress: 'সোবহানবাগ, ঢাকা',
+    deviceType: 'Monitor',
+    brand: 'LG',
+    modelNumber: '24MK600M',
+    serialNumber: '003NDTX3K210',
+    problemDescription: 'পাওয়ার আসে না, অ্যাডাপ্টারে লাল আলো জ্বলে কিন্তু স্ক্রিন ডেড।',
+    accessoriesIncluded: 'LG Power Adapter & HDMI Cable',
+    receivedBy: 'সুমন',
+    status: 'Delivered',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-22T09:40:00.000Z', updatedBy: 'সুমন', note: 'গ্রহণ করা হয়েছে।' },
+      { status: 'Repair Completed', timestamp: '2026-10-23T15:00:00.000Z', updatedBy: 'সুজন (Tech)', note: 'পাওয়ার সেকশনের মসফেট ও ক্যাপাসিটর চেঞ্জ করা হয়েছে।' },
+      { status: 'Delivered', timestamp: '2026-10-24T18:00:00.000Z', updatedBy: 'সুমন', note: 'গ্রাহকের নিকট টেস্ট করিয়ে ডেলিভারি প্রদান করা হয়েছে।' }
+    ],
+    estimatedCost: 1800,
+    finalCost: 1800,
+    totalPaid: 1800,
+    remainingBalance: 0,
+    paymentStatus: 'Paid',
+    paymentHistory: [
+      { id: 'pay-3a', receiptNumber: 'PAY-1003', amount: 500, date: '2026-10-22T09:45:00.000Z', method: 'Cash', receivedBy: 'সুমন', note: 'অগ্রিম' },
+      { id: 'pay-3b', receiptNumber: 'DELPAY-1003', amount: 1300, date: '2026-10-24T18:00:00.000Z', method: 'Nagad', receivedBy: 'সুমন', note: 'ডেলিভারি কালেকশন' }
+    ],
+    deliveryDate: '2026-10-24',
+    deliveredBy: 'সুমন',
+    deliveryName: 'ফারহানা ইসলাম',
+    deliveryNotes: 'সম্পূর্ণ ফিট এবং ডিসপ্লে চেক করে বুঝিয়ে দেওয়া হলো।',
+    createdAt: '2026-10-22T09:40:00.000Z',
+    updatedAt: '2026-10-24T18:00:00.000Z'
+  },
+  {
+    id: 'job-seed-4',
+    jobNumber: 'MT-26-0004',
+    receiveDate: '2026-10-28',
+    branchId: 'gulsan-trest',
+    customerId: 'cust-4',
+    customerName: 'মোহাম্মদ মোর্শেদ',
+    customerPhone: '01677889900',
+    customerAddress: 'গুলশান-১, ঢাকা',
+    deviceType: 'Laptop',
+    brand: 'Lenovo',
+    modelNumber: 'ThinkPad T480',
+    serialNumber: 'PF1E79AB',
+    problemDescription: 'কিবোর্ডের অনেক কী কাজ করে না এবং ব্যাটারি ব্যাকআপ ১০ মিনিট।',
+    accessoriesIncluded: 'Laptop Only',
+    receivedBy: 'কামাল',
+    status: 'Diagnosis Pending',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-28T11:20:00.000Z', updatedBy: 'কামাল', note: 'রিসিভ করা হয়েছে।' },
+      { status: 'Diagnosis Pending', timestamp: '2026-10-28T13:00:00.000Z', updatedBy: 'সুজন', note: 'নতুন কিবোর্ড ও ওরিজিনাল ব্যাটারি কোটেশন চেক হচ্ছে।' }
+    ],
+    estimatedCost: 5500,
+    finalCost: 5500,
+    totalPaid: 0,
+    remainingBalance: 5500,
+    paymentStatus: 'Unpaid',
+    paymentHistory: [],
+    deliveryDate: null,
+    deliveredBy: null,
+    deliveryName: null,
+    deliveryNotes: null,
+    createdAt: '2026-10-28T11:20:00.000Z',
+    updatedAt: '2026-10-28T13:00:00.000Z'
+  },
+  {
+    id: 'job-seed-5',
+    jobNumber: 'MT-26-0005',
+    receiveDate: '2026-10-29',
+    branchId: 'hs-e',
+    customerId: 'cust-5',
+    customerName: 'ডা. সাজিদ করিম',
+    customerPhone: '01511223344',
+    customerAddress: 'এলিফ্যান্ট রোড, ঢাকা',
+    deviceType: 'Desktop',
+    brand: 'Asus',
+    modelNumber: 'PRIME B560M-A Core i5 11th Gen',
+    serialNumber: 'M409B-CUSTOM',
+    problemDescription: 'অন হয়ে ৩০ সেকেন্ড পর বন্ধ হয়ে যায়, সিপিইউ ফ্যান ফুল স্পিডে ঘুরে।',
+    accessoriesIncluded: 'CPU Casing only',
+    receivedBy: 'জাকির',
+    status: 'Received',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-29T09:10:00.000Z', updatedBy: 'জাকির', note: 'আজ সকালে গ্রাহক দিয়ে গেছেন।' }
+    ],
+    estimatedCost: 2200,
+    finalCost: 2200,
+    totalPaid: 500,
+    remainingBalance: 1700,
+    paymentStatus: 'Partially Paid',
+    paymentHistory: [
+      { id: 'pay-5', receiptNumber: 'PAY-1005', amount: 500, date: '2026-10-29T09:15:00.000Z', method: 'Cash', receivedBy: 'জাকির', note: 'টোকেন অগ্রিম' }
+    ],
+    deliveryDate: null,
+    deliveredBy: null,
+    deliveryName: null,
+    deliveryNotes: null,
+    createdAt: '2026-10-29T09:10:00.000Z',
+    updatedAt: '2026-10-29T09:15:00.000Z'
+  },
+  {
+    id: 'job-seed-6',
+    jobNumber: 'MT-26-0006',
+    receiveDate: '2026-10-26',
+    branchId: 'jara-computer',
+    customerId: 'cust-6',
+    customerName: 'মেহেদী হাসান জাহিদ',
+    customerPhone: '01799887766',
+    customerAddress: 'মিরপুর-১০, ঢাকা',
+    deviceType: 'Laptop',
+    brand: 'Acer',
+    modelNumber: 'Aspire 7 A715',
+    serialNumber: 'NHQ8YAA001',
+    problemDescription: 'পানি পড়ে গ্রাফিক্স চিপসেট পুড়ে গেছে (Water damage & GPU fault)।',
+    accessoriesIncluded: 'Laptop & Charger',
+    receivedBy: 'নাঈম',
+    status: 'Unrepairable',
+    statusHistory: [
+      { status: 'Received', timestamp: '2026-10-26T16:00:00.000Z', updatedBy: 'নাঈম', note: 'রিসিভ করা হয়েছে।' },
+      { status: 'Unrepairable', timestamp: '2026-10-27T17:30:00.000Z', updatedBy: 'আনিস (Senior Tech)', note: 'মেইন প্রসেসর এবং ভিআরএম লেয়ার পুড়ে নষ্ট হয়ে গেছে, রিপেয়ারযোগ্য নয়।' }
+    ],
+    estimatedCost: 1500,
+    finalCost: 0,
+    totalPaid: 0,
+    remainingBalance: 0,
+    paymentStatus: 'Paid',
+    paymentHistory: [],
+    deliveryDate: null,
+    deliveredBy: null,
+    deliveryName: null,
+    deliveryNotes: 'কোনো সার্ভিস চার্জ প্রযোজ্য নয়। ডিভাইস ফেরত দেওয়া হবে।',
+    createdAt: '2026-10-26T16:00:00.000Z',
+    updatedAt: '2026-10-27T17:30:00.000Z'
+  }
+];

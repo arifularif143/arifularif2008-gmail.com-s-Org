@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function getUserRole() {
+      return request.auth.token.role;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'Admin';
+    }
+
+    function isAccountant() {
+      return isAuthenticated() && (getUserRole() == 'Accountant' || getUserRole() == 'Admin');
+    }
+
+    // Service Jobs: Read for authenticated staff, mutations guarded
+    match /service_jobs/{jobId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAdmin();
+    }
+    
+    // Financial Payments: Only Admin & Accountant can mutate records
+    match /payments/{paymentId} {
+      allow read: if isAuthenticated();
+      allow create, update: if isAccountant();
+      allow delete: if isAdmin();
+    }
+
+    // Branch Settings
+    match /settings/{settingId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+  }
+}
